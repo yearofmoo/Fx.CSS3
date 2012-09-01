@@ -90,9 +90,11 @@ element.morph({
 And the great part is that it's all done with CSS3 Transitions!!!
 
 
-## CSS3 Colors
+## CSS3 Properties & Colors
 
-It's best to stick to using Hex and/or RGB colors in your style properties. MooTools doesn't yet support converting color labels to Hex/RGB. Despite Fx.CSS3 using CSS3 transitions (which is where the browser figures out the color difference), older browsers which do not support CSS3 transitions will break when trying to parse color labels.
+- Be sure to define all your styles beforehand with actual values. The MooTools Fx class doesn't like it when your values are defined as `none`.
+
+- It's best to stick to using Hex and/or RGB colors in your style properties. MooTools doesn't yet support converting color labels to Hex/RGB. Despite Fx.CSS3 using CSS3 transitions (which is where the browser figures out the color difference), older browsers which do not support CSS3 transitions will break when trying to parse color labels.
 
 So do it this way:
 
@@ -100,6 +102,7 @@ So do it this way:
 element.morph({
   'box-shadow':'#dddddd 0 0 5px'
 });
+```
 
 Or this way
 
@@ -107,6 +110,7 @@ Or this way
 element.morph({
   'box-shadow':'rgb(200,200,200) 0 0 5px'
 });
+```
 
 But NOT this way:
 
@@ -114,6 +118,20 @@ But NOT this way:
 element.morph({
   'box-shadow':'silver 0 0 5px'
 });
+```
+
+
+## Using a CSS className as a property
+
+Fx.CSS3 also supports classNames as properties for animation:
+
+```javascript
+element.morph('.active');
+```
+
+Be sure to define the CSS class as a simple selector (just the className as the selector).
+
+This works in both Fx.CSS3 and Fx.CSS. 
 
 
 ## More Info + Demos
