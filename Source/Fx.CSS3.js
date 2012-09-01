@@ -319,6 +319,10 @@ Fx.CSS3.supported = (function() {
   b.setStyle(key,'');
   return result;
 })();
+
+Fx.CSS3.getSupportedInstance = function(element,options) {
+  return new (Fx.CSS3.supported ? Fx.CSS3 : Fx.Morph)(element,options);
+};
 if(Fx.CSS3.supported) {
   Element.Properties.tween = {
     set: function(options){

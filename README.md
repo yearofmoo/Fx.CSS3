@@ -77,7 +77,7 @@ new Fx.CSS3(element, options).start({
 });
 
 //or using it directly without having to figure who supports what
-var fx = Fx.CSS3.getSupportedInstance(); //Fx.CSS3 or Fx.Morph (depending on what the browser supports)
+var fx = Fx.CSS3.getSupportedInstance(element,options); //Fx.CSS3 or Fx.Morph (depending on what the browser supports)
 ```
 
 ## CSS3 Properties
