@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<title>Native Browser Events</title> 
+<style type="text/css">
+#element {
+  padding:1em;
+  background:red;
+  color:white;
+  border:1px solid blue;
+  font-size:3em;
+  text-shadow:#000000 0px 0px 2px;
+  box-shadow:#ffcc00 0px 0px 100px;
+}
+#element.start {
+  background:blue;
+  border-radius:100px;
+  -webkit-transform:rotate(1080deg);
+}
+</style>
+</head> 
+
+<body id="" class=""> 
+  <a href="#" id="start">Start</a>
+  <a href="#" id="stop">Stop</a>
+  <div id="element">
+    Something
+  </div>
+<script type="text/javascript" src="../Assets/MooTools-core.js"></script>
+<script type="text/javascript" src="../Assets/MooTools-more.js"></script>
+<script type="text/javascript" src="../../Source/src/Browser.vendorPrefix.js"></script>
+<script type="text/javascript" src="../../Source/src/Browser.vendorStyle.js"></script>
+<script type="text/javascript" src="../../Source/src/Event.Transition.js"></script>
+<script type="text/javascript" src="../../Source/src/Fx.CSS3.js"></script>
+<script type="text/javascript" src="../../Source/src/Element.Extras.CSS3.js"></script>
+<script type="text/javascript">
+window.addEvent('domready',function() {
+
+  var element = $('element');
+  $('start').addEvent('click',function(event) {
+    event.stop();
+    element.set('morph', { duration : 500 });
+    element.get('morph').start({
+      'border-radius':20,
+      'border-width':'20px 10px',
+      'border-color':'#dddddd #FFCC00',
+      'box-shadow':'#000000 0 0 100 0',
+      'text-shadow':'#FFFFFF 0 0 30'
+    }).chain(function() {
+      alert('here');
+    });
+  }); 
+
+  $('stop').addEvent('click',function(event) {
+    event.stop();
+    element.get('morph').cancel();
+  }); 
+
+});
+</script>
+</body>
+</html> 

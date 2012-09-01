@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<title>Native Browser Events</title> 
+<style type="text/css">
+#element {
+  background:red;
+  padding:1em;
+  color:white;
+  -webkit-transition:1s linear all;
+}
+#element.start {
+  background:blue;
+}
+</style>
+</head> 
+
+<body id="" class=""> 
+  <div id="element">
+    Something
+  </div>
+  <a href="#" id="start">Start</a>
+<script type="text/javascript" src="../Assets/MooTools-core.js"></script>
+<script type="text/javascript" src="../Assets/MooTools-more.js"></script>
+<script type="text/javascript" src="../../Source/src/Event.Transition.js"></script>
+<script type="text/javascript" src="../../Source/src/Fx.CSS3.js"></script>
+<script type="text/javascript">
+window.addEvent('domready',function() {
+
+  element = $('element')
+  element.addEventListener('webkitTransitionEnd',function() {
+    alert('123');
+  });
+
+  $('start').addEvent('click',function(event) {
+    event.stop();
+    element.addClass('start');
+  });
+
+});
+</script>
+</body>
+</html> 
