@@ -34,6 +34,15 @@ Include the following script into your webpage:
 <script type="text/javascript" src="/path/to/Fx.CSS3/Fx.CSS3.js"></script>
 ```
 
+If you wish to pick and choose which files to use, then include them in this order:
+
+- Source/src/Browser.name.js
+- Source/src/Browser.vendorPrefix.js
+- Source/src/Browser.vendorStyle.js
+- Source/src/Event.transition.js
+- Source/src/Fx.CSS3.js
+- Source/src/Element.Extras.CSS3.js
+
 
 ## Usage
 
@@ -66,6 +75,9 @@ var options = {};
 new Fx.CSS3(element, options).start({
   'transform':'rotate(30deg)'
 });
+
+//or using it directly without having to figure who supports what
+var fx = Fx.CSS3.getSupportedInstance(); //Fx.CSS3 or Fx.Morph (depending on what the browser supports)
 ```
 
 ## CSS3 Properties
