@@ -1,0 +1,18 @@
+src:
+  input:
+    - Source/src/Browser.name.js
+    - Source/src/Browser.vendorPrefix.js
+    - Source/src/Browser.vendorStyle.js
+    - Source/src/Event.transition.js
+    - Source/src/Fx.CSS3.js
+    - Source/src/Element.Extras.CSS3.js
+  output:
+    - Source/Fx.CSS3.js
+
+jsmin:
+  filters:
+    - cat Source/Fx.CSS3.js | jsmin > %{output}
+  input:
+    - Source/Fx.CSS3.js
+  output:
+    - Source/Fx.CSS3.min.js
