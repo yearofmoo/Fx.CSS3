@@ -32,7 +32,7 @@ Include the following script into your webpage:
 <script type="text/javascript" src="/path/to/MooTools-core.js"></script>
 <script type="text/javascript" src="/path/to/MooTools-more.js"></script>
 <script type="text/javascript" src="/path/to/Fx.CSS3/Fx.CSS3.js"></script>
-```html
+```
 
 
 ## Usage
