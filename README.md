@@ -85,6 +85,7 @@ element.morph({
    'border-radius':20,
    'box-shadow':'#DDCCDD 0 0 20px'
 });
+```
 
 And the great part is that it's all done with CSS3 Transitions!!!
 
