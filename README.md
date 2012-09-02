@@ -1,6 +1,6 @@
 #Fx.CSS3
 
-Fx.CSS3 prodiveds Fx animations using CSS3 transitions as well as various CSS3 properties available to be animated.
+Fx.CSS3 prodiveds Fx animations using CSS3 transitions for the MooTools JavaScript framework. Fx.CSS3 also provides animation possibilities various CSS style properties which are not current available in MooTools (such as transform, box-shadow, border-radius).
 
 
 ## About Fx.Morph/Fx.Tween and Fx.CSS3
@@ -19,14 +19,14 @@ For the browsers that do not support CSS3 transitions, the standard Element.twee
 
 ## Supported Browsers
 
-The following browsers support CSS3 transitions (and thus Fx.CSS3):
+The following browsers support CSS3 transitions:
 - IE10+
 - Firefox 4+
 - Google Chrome 4+
 - Safari 3+
 - Opera 10.5+
 
-All other browsers will just use the standard Fx.Tween and Fx.Morph libraries provided by MooTools
+All other browsers will just use the standard Fx.Tween and Fx.Morph libraries provided by MooTools.
 
 
 ## Requirements
@@ -155,13 +155,25 @@ Be sure to define the CSS class beforehand as a simple selector (just the class 
 
 ```css
 .active {
-  //properties
+  /* css properties */
 }
 ```
 
-This works in both Fx.CSS3 and Fx.CSS. 
+This works in both Fx.CSS3 and Fx.Morph/Fx.Tween. But keep in mind that this will only work with Fx.Morph if the stylesheet is on the same domain since CSS rules are not available to be viewed using JavaScript when the stylesheet is outside of the origin.
 
-(Keep in mind that this will only work with Fx.Morph if the stylesheet is on the same domain).
+So to make this work 100%, just do the following
+
+```javascript
+var onReady = function() { };
+
+if(Fx.CSS3.supported) {
+  element.get('morph').start('.active').chain(onReady);
+}
+else {
+  element.addClass('.active');
+  onReady();
+}
+```
 
 
 ## More Info + Demos
