@@ -355,4 +355,16 @@ if(Fx.CSS3.supported) {
       return morph;
     }
   };
+
+  Element.implement({
+
+    tween : function(css, value) {
+      $(this).get('tween').start(css, value);
+    },
+
+    morph : function(values) {
+      $(this).get('morph').start(values);
+    }
+
+  });
 }
