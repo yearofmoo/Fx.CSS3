@@ -130,7 +130,7 @@ Or this way
 
 ```javascript
 element.morph({
-  'box-shadow':'rgb(200,200,200) 0 0 5px'
+  'box-shadow':'rgb(200,200,200) 0 0 5' //the px is optional
 });
 ```
 
@@ -143,9 +143,9 @@ element.morph({
 ```
 
 
-## Using a CSS className as a property
+## Using a CSS class as the animation value
 
-Fx.CSS3 also supports classNames as properties for animation:
+Fx.CSS3 also supports CSS classes as properties for animation:
 
 ```javascript
 element.morph('.active');
@@ -159,17 +159,21 @@ Be sure to define the CSS class beforehand as a simple selector (just the class 
 }
 ```
 
-This works in both Fx.CSS3 and Fx.Morph/Fx.Tween. But keep in mind that this will only work with Fx.Morph if the stylesheet is on the same domain since CSS rules are not available to be viewed using JavaScript when the stylesheet is outside of the origin.
+This works in both Fx.CSS3 and Fx.Morph/Fx.Tween.
 
-So to make this work 100%, just do the following
+If the browser does not support CSS3 transitions, then keep in mind that this will only work if the css styles/stylesheet are on the same domain since CSS rules are not available to be viewed using JavaScript when the stylesheet is outside of the origin.
+
+Since this is a bit of a hack to get to work properly, just do this instead to make it work 100%:
 
 ```javascript
 var onReady = function() { };
 
 if(Fx.CSS3.supported) {
+  //animate it properly
   element.get('morph').start('.active').chain(onReady);
 }
 else {
+  //skip animation for non-css3 browsers
   element.addClass('.active');
   onReady();
 }
