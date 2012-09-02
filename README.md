@@ -66,7 +66,7 @@ element.get('morph').start({
 element.tween(''transform','rotate(30deg)');
 
 //Element.tween with chaining
-element.get('tween').start(''transform','rotate(30deg)').chain(function() {
+element.get('tween').start('transform','rotate(30deg)').chain(function() {
   //...
 });
 
@@ -77,7 +77,7 @@ new Fx.CSS3(element, options).start({
 });
 
 //or using it directly without having to figure who supports what
-var fx = Fx.CSS3.getSupportedInstance(element,options); //Fx.CSS3 or Fx.Morph (depending on what the browser supports)
+var fx = Fx.CSS3.createSupportedInstance(element,options); //Fx.CSS3 or Fx.Morph (depending on what the browser supports)
 ```
 
 ## CSS3 Properties
@@ -141,7 +141,15 @@ Fx.CSS3 also supports classNames as properties for animation:
 element.morph('.active');
 ```
 
-Be sure to define the CSS class as a simple selector (just the className as the selector).
+Be sure to define the CSS class beforehand as a simple selector (just the class name as the selector):
+
+```css
+.active {
+  //properties
+}
+```
+
+Keep in mind that this will only work with Fx.Morph if the stylesheet is on the same domain.
 
 This works in both Fx.CSS3 and Fx.CSS. 
 

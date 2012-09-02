@@ -231,6 +231,6 @@ Fx.CSS3.supported = (function() {
   return result;
 })();
 
-Fx.CSS3.getSupportedInstance = function(element,options) {
+Fx.CSS3.createSupportedInstance = function(element,options) {
   return new (Fx.CSS3.supported ? Fx.CSS3 : Fx.Morph)(element,options);
 };
