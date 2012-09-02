@@ -93,7 +93,7 @@ Fx.CSS3 does this for you with the following attributes (which work also work in
 - text-shadow
 - transform
 
-* **the CSS transform property will NOT work with Fx.Morph, only Fx.CSS3** *
+**(the CSS transform property will NOT work with Fx.Morph, only Fx.CSS3)**
 
 So feel free to do some radical animations such as:
 ```javascript
@@ -154,9 +154,9 @@ Be sure to define the CSS class beforehand as a simple selector (just the class 
 }
 ```
 
-Keep in mind that this will only work with Fx.Morph if the stylesheet is on the same domain.
-
 This works in both Fx.CSS3 and Fx.CSS. 
+
+(Keep in mind that this will only work with Fx.Morph if the stylesheet is on the same domain.)
 
 
 ## More Info + Demos
