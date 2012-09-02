@@ -1,5 +1,10 @@
 #Fx.CSS3
 
+Fx.CSS3 prodiveds Fx animations using CSS3 transitions as well as various CSS3 properties available to be animated.
+
+
+## About Fx.Morph/Fx.Tween and Fx.CSS3
+
 CSS3 transitions are a much much better way to handle animations for browsers. With a standard JavaScript library, animations are handled by figuring out the difference between all style values and applying the changes within a loop managed by a timeout. This is too heavy of a solution and, since JavaScript is single-threaded, they will not be able to do much else when your webpage is animating something. CSS3 transitions are handled within the browser and come complete with completion callbacks.
 
 Fx.CSS3 hijacks the Fx.CSS animation library to provide full Fx animation support using CSS3 Transitions.
@@ -156,7 +161,7 @@ Be sure to define the CSS class beforehand as a simple selector (just the class 
 
 This works in both Fx.CSS3 and Fx.CSS. 
 
-(Keep in mind that this will only work with Fx.Morph if the stylesheet is on the same domain.)
+(Keep in mind that this will only work with Fx.Morph if the stylesheet is on the same domain).
 
 
 ## More Info + Demos
