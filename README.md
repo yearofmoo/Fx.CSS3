@@ -87,11 +87,13 @@ var fx = Fx.CSS3.createSupportedInstance(element,options); //Fx.CSS3 or Fx.Morph
 
 In addition to transitions, Fx.CSS3 also provides support for new CSS3 properties which may or may not require vendor prefixing. Keeping track of these prefix details results in messy code and a lot of branching.
 
-Fx.CSS3 does this for you with the following attributes:
+Fx.CSS3 does this for you with the following attributes (which work also work in Fx.Morph as well):
 - border-radius
 - box-shadow
 - text-shadow
 - transform
+
+** the CSS transform property will NOT work with Fx.Morph, only Fx.CSS3 **
 
 So feel free to do some radical animations such as:
 ```javascript
