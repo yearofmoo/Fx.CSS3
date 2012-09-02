@@ -24,13 +24,16 @@ The following browsers support CSS3 transitions (and thus Fx.CSS3):
 All other browsers will just use the standard Fx.Tween and Fx.Morph libraries provided by MooTools
 
 
+## Requirements
+
+- MooTools-core 1.3+
+
 ## Installation
 
 Include the following script into your webpage:
 
 ```html
 <script type="text/javascript" src="/path/to/MooTools-core.js"></script>
-<script type="text/javascript" src="/path/to/MooTools-more.js"></script>
 <script type="text/javascript" src="/path/to/Fx.CSS3/Fx.CSS3.js"></script>
 ```
 
@@ -63,7 +66,7 @@ element.get('morph').start({
 });
 
 //Element.tween
-element.tween(''transform','rotate(30deg)');
+element.tween('transform','rotate(30deg)');
 
 //Element.tween with chaining
 element.get('tween').start('transform','rotate(30deg)').chain(function() {
