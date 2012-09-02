@@ -1,47 +1,53 @@
 if(Fx.CSS3.supported) {
-  Element.Properties.tween = {
-    set: function(options){
-      this.get('tween').cancel().setOptions(options);
-      return this;
-    },
+  (function() {
 
-    get: function(){
-      var tween = this.retrieve('tween');
-      if (!tween){
-        tween = new Fx.CSS3(this, {link: 'cancel'});
-        this.store('tween', tween);
+    var instanceKey = 'fx:css3:instance';
+
+    Element.Properties.tween = {
+      set: function(options){
+        this.get('tween').cancel().setOptions(options);
+        return this;
+      },
+
+      get: function(){
+        var tween = this.retrieve(instanceKey);
+        if (!tween){
+          tween = new Fx.CSS3(this, {link: 'cancel'});
+          this.store(instanceKey, tween);
+        }
+        return tween;
       }
-      return tween;
-    }
-  };
+    };
 
-  Element.Properties.morph = {
-    set: function(options){
-      this.get('morph').cancel().setOptions(options);
-      return this;
-    },
+    Element.Properties.morph = {
+      set: function(options){
+        this.get('morph').cancel().setOptions(options);
+        return this;
+      },
 
-    get: function(){
-      var morph = this.retrieve('morph');
-      if (!morph){
-        morph = new Fx.CSS3(this, {link: 'cancel'});
-        this.store('morph', morph);
+      get: function(){
+        var morph = this.retrieve(instanceKey);
+        if (!morph){
+          morph = new Fx.CSS3(this, {link: 'cancel'});
+          this.store(instanceKey, morph);
+        }
+        return morph;
       }
-      return morph;
-    }
-  };
+    };
 
-  Element.implement({
+    Element.implement({
 
-    tween : function(css, value) {
-      $(this).get('tween').start(css, value);
-      return this;
-    },
+      tween : function(css, value) {
+        $(this).get('tween').start(css, value);
+        return this;
+      },
 
-    morph : function(values) {
-      $(this).get('morph').start(values);
-      return this;
-    }
+      morph : function(values) {
+        $(this).get('morph').start(values);
+        return this;
+      }
 
-  });
+    });
+
+  })();
 }
