@@ -148,15 +148,21 @@ Fx.CSS3 = new Class({
 
     this.stopped = false;
     this.running = true;
-    this.applyCSSTransitionStyle();
+    this.removeCSSTransitionStyle();
     if(typeOf(styles) == 'string' && styles.charAt(0) == '.' && styles.length > 1) {
+      this.applyCSSTransitionStyle();
       var className = styles.substr(1);
       this.getElement().addClass(className);
+      this.onStart();
     }
     else {
-      this.applyStyles(styles);
+      this.prependStyles(styles);
+      (function() {
+        this.applyCSSTransitionStyle();
+        this.applyStyles(styles);
+        this.onStart();
+      }).delay(50, this);
     }
-    this.onStart();
     return this;
   },
 
@@ -166,7 +172,26 @@ Fx.CSS3 = new Class({
     this.onComplete();
   },
 
-  applyStyles : function(styles) {
+  prependStyles : function(hash) {
+    var styles = {};
+    Object.each(hash, function(value, key) {
+      if(typeOf(value) == 'array') {
+        value = value[0];
+      }
+      styles[key] = value;
+    });
+    styles = this.prepareStyles(styles);
+    this.getElement().setStyles(styles);
+  },
+
+  applyStyles : function(hash) {
+    var styles = {};
+    Object.each(hash, function(value, key) {
+      if(typeOf(value) == 'array') {
+        value = value[value.length-1];
+      }
+      styles[key] = value;
+    });
     styles = this.prepareStyles(styles);
     this.getElement().setStyles(styles);
   },
