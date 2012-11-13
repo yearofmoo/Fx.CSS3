@@ -191,7 +191,6 @@ Fx.CSS3 = new Class({
         styles[i] = missingStyles[i];
       }
     }
-    alert(JSON.encode(styles));
     styles = this.prepareStyles(styles);
     this.getElement().setStyles(styles);
   },
