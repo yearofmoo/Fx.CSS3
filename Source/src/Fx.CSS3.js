@@ -79,6 +79,7 @@ Fx.CSS3 = new Class({
 
   complete : function() {
     this.running = false;
+    this.removeCSSTransitionStyle();
     this.popQueue();
     this.onComplete();
   },
