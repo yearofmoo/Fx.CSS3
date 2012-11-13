@@ -94,7 +94,7 @@ Fx.CSS3 = new Class({
   options : {
     useSpecificStyling : false,
     transition : 'elastic',
-    duration : '1s',
+    duration : '0.5s',
     link : 'cancel'
   },
 
@@ -156,7 +156,7 @@ Fx.CSS3 = new Class({
       this.onStart();
     }
     else {
-      this.prependStyles(styles);
+      this.prependStyles(this.getElement(),styles);
       (function() {
         this.applyCSSTransitionStyle();
         this.applyStyles(styles);
@@ -172,14 +172,26 @@ Fx.CSS3 = new Class({
     this.onComplete();
   },
 
-  prependStyles : function(hash) {
-    var styles = {};
-    Object.each(hash, function(value, key) {
-      if(typeOf(value) == 'array') {
-        value = value[0];
+  prependStyles : function(element, hash) {
+    var styles = {}, missingStyles = [];
+    Object.each(hash, function(v, key) {
+      var value, isArray = typeOf(v) == 'array' && v.length > 1;
+      if(isArray) {
+        value = v[0];
+      }
+      if(value == null || !isArray) {
+        missingStyles.push(key);
+        value = 0;
       }
       styles[key] = value;
     });
+    if(missingStyles.length > 0) {
+      missingStyles = element.getStyles(missingStyles);
+      for(var i in missingStyles) {
+        styles[i] = missingStyles[i];
+      }
+    }
+    alert(JSON.encode(styles));
     styles = this.prepareStyles(styles);
     this.getElement().setStyles(styles);
   },

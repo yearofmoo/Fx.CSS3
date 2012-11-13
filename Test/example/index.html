@@ -7,8 +7,9 @@
   padding:1em;
   background:red;
   color:white;
-  border:1px solid blue;
+  border:100px solid blue;
   font-size:3em;
+  opacity:0;
   text-shadow:#000000 0px 0px 2px;
   box-shadow:#ffcc00 0px 0px 100px;
 }
@@ -39,11 +40,10 @@ window.addEvent('domready',function() {
   var element = $('element');
   $('start').addEvent('click',function(event) {
     event.stop();
-    element.set('morph', { duration : 500 });
     element.get('morph').start({
       'border-radius':20,
-      'opacity':[0,1],
-      'border-width':['1000px 1000px', '10px 10px'],
+      'opacity':1,
+      'border-width':'10px 10px',
       'border-color':'#dddddd #FFCC00',
       'box-shadow':'#000000 0 0 100 0',
       'text-shadow':'#FFFFFF 0 0 30'
